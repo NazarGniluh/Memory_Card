@@ -1,6 +1,7 @@
 import random
 from PyQt5.QtWidgets import *
 import memor
+import MenuWindow
 
 app = QApplication([])
 window = QWidget()
@@ -77,11 +78,24 @@ def showResults():
     else:
         resul.setText("Не правильно")
 
+
+def nextFunc():
+    answers5[0].show()
+    answers5[1].show()
+    answers5[2].show()
+    answers5[3].show()
+    next1.show()
+    resul.hide()
+    memor.currentQuest += 1
+    setQuest()
+
+
 fhwej.clicked.connect(showResults)
+next1.clicked.connect(nextFunc)
 mainLine.addWidget(fhwej)
 mainLine.addWidget(next1)
 
-
+menuBTn.clicked.connect(MenuWindow.menuWind)
 window.setLayout(mainLine)
 window.show()
 app.exec()
