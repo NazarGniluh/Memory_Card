@@ -2,8 +2,35 @@ import random
 from PyQt5.QtWidgets import *
 import memor
 import MenuWindow
+import Vokno
 
 app = QApplication([])
+app.setStyleSheet("""
+        QWidget {
+            background: #bfc202;
+        
+        }
+        
+        
+        QPushButton
+        {
+            color: black;
+            background-color: #fbff00;
+            border-style: outset;
+            border-width: 5px;
+            font-styles: Impact;
+  
+            min-width: 100px;
+            
+            margin: 10px;
+        }
+       
+            
+    
+    
+    
+    
+    """)
 window = QWidget()
 
 window.resize(500, 500)
@@ -13,6 +40,7 @@ menuBTn = QPushButton("Меню")
 restBTn = QPushButton("Відпочити")
 TimeSpb = QSpinBox()
 timebls = QLabel("хвилин")
+goglee = QPushButton("Редагування")
 
 forst = QLabel("В якому році почалася повномаштабна війна в Україні? ")
 fhwej = QPushButton("Відповісти")
@@ -90,10 +118,13 @@ def nextFunc():
     setQuest()
 
 
+
 fhwej.clicked.connect(showResults)
 next1.clicked.connect(nextFunc)
 mainLine.addWidget(fhwej)
 mainLine.addWidget(next1)
+goglee.clicked.connect(Vokno.vokno)
+mainLine.addWidget(goglee)
 
 menuBTn.clicked.connect(MenuWindow.menuWind)
 window.setLayout(mainLine)
